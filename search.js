@@ -5,6 +5,8 @@ import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 // import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
 import { OpenAIEmbeddings } from '@langchain/openai';
 
+const question = process.argv[2] || 'I want to watch an action movie';
+
 const bollywoodMovies = [
   {
     id: 1,
@@ -79,4 +81,4 @@ const search = async (query, count = 1) => {
   return store.similaritySearchWithScore(query, count);
 };
 
-console.log(await search('i want to watch action movie', 2));
+console.log(await search(question, 2));
